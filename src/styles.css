@@ -1,0 +1,580 @@
+:root {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter",
+    sans-serif;
+
+  color: #1d1d1f;
+  background: #f5f5f7;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  min-width: 420px;
+  min-height: 100vh;
+
+  background: radial-gradient(circle at top, #ffffff 0%, #f5f5f7 65%);
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+}
+
+/* ---------------- APP ---------------- */
+
+.app {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------------- HEADER ---------------- */
+
+.header {
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 28px;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+
+  background: rgba(255, 255, 255, 0.7);
+
+  backdrop-filter: blur(20px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  font-size: 17px;
+
+  font-weight: 600;
+
+  letter-spacing: -0.3px;
+}
+
+.brand-icon {
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: #1d1d1f;
+
+  color: white;
+
+  font-size: 17px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  font-size: 13px;
+
+  color: #86868b;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #c7c7cc;
+
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.status-dot.running {
+  background: #34c759;
+
+  box-shadow: 0 0 0 4px rgba(52, 199, 89, 0.12);
+}
+
+/* ---------------- MAIN ---------------- */
+
+.main-content {
+  width: 100%;
+  max-width: 460px;
+
+  margin: 0 auto;
+
+  padding: 42px 28px 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ---------------- TIMER ---------------- */
+
+.timer-section {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.timer-ring {
+  --progress: 0deg;
+
+  width: 235px;
+  height: 235px;
+
+  border-radius: 50%;
+
+  background: conic-gradient(#1d1d1f var(--progress), #e5e5ea var(--progress));
+
+  padding: 8px;
+
+  transition: background 0.4s linear;
+}
+
+.timer-inner {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #ffffff;
+
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.03);
+}
+
+.mouse-icon {
+  font-size: 31px;
+
+  margin-bottom: 7px;
+
+  transition: transform 0.15s ease;
+}
+
+.countdown {
+  font-size: 48px;
+
+  font-weight: 600;
+
+  letter-spacing: -2px;
+
+  line-height: 1;
+}
+
+.seconds-label {
+  margin-top: 6px;
+
+  font-size: 13px;
+
+  color: #86868b;
+}
+
+.next-movement {
+  margin-top: 20px;
+
+  font-size: 15px;
+
+  color: #6e6e73;
+
+  min-height: 20px;
+
+  text-align: center;
+}
+
+/* ---------------- SETTINGS ---------------- */
+
+.settings {
+  width: 100%;
+
+  margin-top: 36px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.75);
+
+  border: 1px solid rgba(0, 0, 0, 0.05);
+
+  overflow: hidden;
+
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.setting {
+  min-height: 76px;
+
+  padding: 16px 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 18px;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.setting:last-child {
+  border-bottom: none;
+}
+
+.setting-text {
+  min-width: 0;
+
+  flex: 1;
+}
+
+.setting-title {
+  font-size: 15px;
+
+  font-weight: 500;
+}
+
+.setting-description {
+  margin-top: 3px;
+
+  font-size: 12px;
+
+  color: #86868b;
+
+  line-height: 1.35;
+}
+
+.setting-control {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  gap: 8px;
+
+  flex-shrink: 0;
+}
+
+/* ---------------- INPUT GROUP ---------------- */
+
+.input-group {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+}
+
+.number-input {
+  width: 65px;
+
+  padding: 9px 10px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #f2f2f7;
+
+  color: #1d1d1f;
+
+  font-size: 13px;
+
+  text-align: center;
+
+  outline: none;
+}
+
+.number-input:focus {
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
+}
+
+/* Remove number arrows */
+
+.number-input::-webkit-inner-spin-button,
+.number-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+
+  margin: 0;
+}
+
+/* ---------------- SELECT ---------------- */
+
+select {
+  appearance: none;
+
+  min-width: 105px;
+
+  padding: 9px 28px 9px 12px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #f2f2f7;
+
+  color: #1d1d1f;
+
+  font-size: 13px;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  outline: none;
+}
+
+select:focus {
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
+}
+
+select:disabled,
+input:disabled {
+  opacity: 0.55;
+
+  cursor: default;
+}
+
+.wide-select {
+  min-width: 150px;
+}
+
+/* ---------------- SCHEDULE ---------------- */
+
+.schedule-controls {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.schedule-controls.hidden {
+  display: none;
+}
+
+.schedule-row {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 12px;
+}
+
+.schedule-row label {
+  font-size: 13px;
+
+  color: #6e6e73;
+
+  min-width: 48px;
+}
+
+.date-time-group {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+}
+
+.date-time-group input {
+  height: 35px;
+
+  padding: 7px 9px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #f2f2f7;
+
+  color: #1d1d1f;
+
+  font-family: inherit;
+
+  font-size: 12px;
+
+  outline: none;
+}
+
+.date-time-group input[type="date"] {
+  width: 130px;
+}
+
+.date-time-group input[type="time"] {
+  width: 90px;
+}
+
+.date-time-group input:focus {
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------------- BUTTON ---------------- */
+
+.main-button {
+  width: 100%;
+
+  height: 50px;
+
+  margin-top: 24px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: #1d1d1f;
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.2px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.main-button:hover {
+  opacity: 0.88;
+}
+
+.main-button:active {
+  transform: scale(0.98);
+}
+
+.main-button.stop {
+  background: #ff3b30;
+}
+
+/* ---------------- INFO ---------------- */
+
+.info {
+  margin-top: 13px;
+
+  font-size: 12px;
+
+  color: #86868b;
+
+  text-align: center;
+
+  line-height: 1.4;
+}
+
+/* ---------------- FOOTER ---------------- */
+
+footer {
+  margin-top: auto;
+
+  padding: 18px;
+
+  text-align: center;
+
+  font-size: 11px;
+
+  color: #aeaeb2;
+}
+
+/* ---------------- HIDDEN ---------------- */
+
+.hidden {
+  display: none !important;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media (max-width: 500px) {
+  body {
+    min-width: 0;
+  }
+
+  .main-content {
+    padding-left: 20px;
+
+    padding-right: 20px;
+  }
+
+  .timer-ring {
+    width: 210px;
+
+    height: 210px;
+  }
+
+  .countdown {
+    font-size: 42px;
+  }
+
+  .setting {
+    align-items: flex-start;
+
+    padding: 16px;
+  }
+
+  .setting-control {
+    max-width: 230px;
+  }
+
+  .schedule-row {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 5px;
+  }
+
+  .date-time-group {
+    width: 100%;
+  }
+
+  .date-time-group input[type="date"] {
+    width: 130px;
+  }
+}
